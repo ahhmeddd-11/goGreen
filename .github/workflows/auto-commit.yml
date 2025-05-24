@@ -1,0 +1,26 @@
+name: Auto Commit
+
+on:
+  schedule:
+    - cron: '0 6 * * *'  # Runs every day at 6 AM UTC
+  workflow_dispatch:
+
+jobs:
+  auto-commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Git
+        run: |
+          git config user.name "ahhmeddd-11"
+          git config user.email "your-email@example.com"
+
+      - name: Make a dummy change
+        run: |
+          date >> update.log
+          git add update.log
+          git commit -m "🌱 Daily commit - keep green!"
+          git push
