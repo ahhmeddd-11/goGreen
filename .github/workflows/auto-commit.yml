@@ -23,4 +23,4 @@ jobs:
           date >> update.log
           git add -f update.log
           git commit -m "🌱 Daily commit - keep green!"
-          git push
+          git push origin
